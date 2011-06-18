@@ -43,6 +43,13 @@ public final class FileURLDownloadTask extends AsyncTask< Void, Integer, Void >
 				
 				try
 				{
+					String connectedHost = urlConnection.getURL().getHost();
+					
+					if ( !itsUrl.getHost().equals( connectedHost ) )
+					{
+						throw new ProtocolException( "HTTP redirect to " + connectedHost + " not allowed" );
+					}
+					
 					File tempFile = new File( itsDestination.getParentFile(),
 					                          itsDestination.getName() + "~" );
 					
