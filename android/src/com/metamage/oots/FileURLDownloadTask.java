@@ -10,10 +10,15 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.util.HashMap;
 
 
 public final class FileURLDownloadTask extends AsyncTask< Void, Integer, Void >
 {
+	private static HashMap< Integer, Integer > theDownloadsInProgress = new HashMap< Integer, Integer >();
+	
+	int itsID;
+	
 	URL itsUrl;
 	
 	File itsDestination;
@@ -22,8 +27,18 @@ public final class FileURLDownloadTask extends AsyncTask< Void, Integer, Void >
 	
 	IOException itsSavedException;
 	
-	public FileURLDownloadTask( URL url, File dest, Completion completion )
+	public FileURLDownloadTask( int id, URL url, File dest, Completion completion )
 	{
+		if ( theDownloadsInProgress.containsKey( id ) )
+		{
+			cancel( false );  // no need to interrupt, we never enter doInBackground()
+			
+			return;
+		}
+		
+		theDownloadsInProgress.put( id, 0 );
+		
+		itsID          = id;
 		itsUrl         = url;
 		itsDestination = dest;
 		itsCompletion  = completion;
@@ -128,6 +143,8 @@ public final class FileURLDownloadTask extends AsyncTask< Void, Integer, Void >
 	
 	protected void onPostExecute( Void v )
 	{
+		theDownloadsInProgress.remove( itsID );
+		
 		itsCompletion.call( itsSavedException );
 	}
 }
