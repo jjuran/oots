@@ -33,6 +33,8 @@ public final class FileURLDownloadTask extends AsyncTask< Void, Integer, Void >
 		{
 			HttpURLConnection urlConnection = (HttpURLConnection) itsUrl.openConnection();
 			
+			urlConnection.setRequestProperty( "Accept-Encoding", "identity" );
+			
 			try
 			{
 				InputStream input = urlConnection.getInputStream();
