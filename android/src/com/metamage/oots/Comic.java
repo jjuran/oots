@@ -60,6 +60,21 @@ public final class Comic extends Activity implements Prep.Target
 		return filename;
 	}
 	
+	private final Bitmap scaledBitmap( Bitmap bitmap )
+	{
+		final float density = getResources().getDisplayMetrics().density;
+		
+		if ( density != 1.0 )
+		{
+			bitmap = Bitmap.createScaledBitmap( bitmap,
+			                                    (int) (bitmap.getWidth()  * density),
+			                                    (int) (bitmap.getHeight() * density),
+			                                    true );
+		}
+		
+		return bitmap;
+	}
+	
 	public final class ComicLoad implements Prep.Task
 	{
 		public boolean engage() throws IOException
@@ -77,7 +92,7 @@ public final class Comic extends Activity implements Prep.Target
 			
 			if ( cacheFile.exists() )
 			{
-				itsDisplayedBitmap = BitmapFactory.decodeStream( new FileInputStream( cacheFile ) );
+				itsDisplayedBitmap = scaledBitmap( BitmapFactory.decodeStream( new FileInputStream( cacheFile ) ) );
 				
 				return true;
 			}
