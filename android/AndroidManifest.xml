@@ -27,6 +27,15 @@
 		</activity>
 		
 		<activity
+			android:name="About"
+			>
+			<intent-filter>
+				<action android:name="com.metamage.oots.action.ABOUT" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		
+		<activity
 			android:name="Arcs"
 			android:label="@string/title_arcs"
 			>

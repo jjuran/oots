@@ -6,4 +6,6 @@
 	
 	<string name="main_title">The Order of the Stick</string>
 	<string name="main_byline">by Rich Burlew</string>
+	<string name="words_and_art_byline">Words and Art by Rich Burlew</string>
+	<string name="android_app_byline">Android app by Josh Juran</string>
 </resources>

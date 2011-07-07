@@ -86,6 +86,11 @@ public final class Main extends Activity implements Prep.Target
 		}
 	}
 	
+	public void onClickAbout( View v )
+	{
+		startActivity( new Intent( "com.metamage.oots.action.ABOUT" ) );
+	}
+	
 	public void onClickArcs( View v )
 	{
 		startActivity( new Intent( "com.metamage.oots.action.ARCS" ) );
