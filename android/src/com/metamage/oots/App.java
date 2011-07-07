@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 
 import java.io.File;
+import java.io.InputStream;
+import java.io.IOException;
 
 
 public final class App extends Application
@@ -13,6 +15,17 @@ public final class App extends Application
 	
 	static File cacheDir;
 	
+	public String[] LoadNLinesFromRawFile( int n, int id ) throws IOException
+	{
+		InputStream input = getResources().openRawResource( id );
+		
+		String[] lines = FileUtils.ReadNLinesFromInputStream( n, input );
+		
+		input.close();
+		
+		return lines;
+	}
+	
 	@Override
 	public void onCreate()
 	{
@@ -21,6 +34,20 @@ public final class App extends Application
 		context = this;
 		
 		cacheDir = getCacheDir();
+		
+		try
+		{
+			// Load titles/hashes
+			// ------------------
+			
+			final int n_comics = Data.countOfComicsInCompletedArcs();
+			
+			Data.titles = LoadNLinesFromRawFile( n_comics, R.raw.titles );
+		}
+		catch ( IOException e )
+		{
+			// Shouldn't happen
+		}
 	}
 	
 }
