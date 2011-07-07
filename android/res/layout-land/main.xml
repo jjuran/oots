@@ -25,4 +25,5 @@
 			<include layout="@layout/main_body" />
 		</LinearLayout>
 	</LinearLayout>
+	<include layout="@layout/main_foot" />
 </LinearLayout>

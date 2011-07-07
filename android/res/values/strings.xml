@@ -2,6 +2,8 @@
 <resources>
 	<string name="app_name">Order of the Stick (beta)</string>
 	
+	<string name="title_arcs">Story arcs</string>
+	
 	<string name="main_title">The Order of the Stick</string>
 	<string name="main_byline">by Rich Burlew</string>
 </resources>

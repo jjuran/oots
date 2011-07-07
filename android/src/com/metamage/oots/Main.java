@@ -86,6 +86,11 @@ public final class Main extends Activity implements Prep.Target
 		}
 	}
 	
+	public void onClickArcs( View v )
+	{
+		startActivity( new Intent( "com.metamage.oots.action.ARCS" ) );
+	}
+	
 	public void onClickWebSite( View v )
 	{
 		startActivity( new Intent( Intent.ACTION_VIEW, Uri.parse( Web.GITP ) ) );

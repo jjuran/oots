@@ -8,4 +8,5 @@
 	>
 	<include layout="@layout/main_head" />
 	<include layout="@layout/main_body" />
+	<include layout="@layout/main_foot" />
 </LinearLayout>

@@ -21,6 +21,8 @@ public final class App extends Application
 		context = this;
 		
 		cacheDir = getCacheDir();
+		
+		Arcs.staticInit();
 	}
 	
 }
