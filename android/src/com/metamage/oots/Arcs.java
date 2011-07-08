@@ -1,8 +1,11 @@
 package com.metamage.oots;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 
 public final class Arcs extends ListActivity
@@ -48,6 +51,14 @@ public final class Arcs extends ListActivity
 		setListAdapter( new ArrayAdapter< String >( this,
 		                                            android.R.layout.simple_list_item_1,
 		                                            names ) );
+	}
+	
+	@Override
+	protected void onListItemClick( ListView l, View v, int position, long id )
+	{
+		Data.goToArcOffset( position );
+		
+		startActivity( new Intent( "com.metamage.oots.action.ARCCOMICS" ) );
 	}
 	
 }
