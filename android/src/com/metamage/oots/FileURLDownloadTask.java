@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.IOException;
 import java.net.HttpURLConnection;
+import java.net.ProtocolException;
 import java.net.URL;
 
 
@@ -51,6 +52,11 @@ public final class FileURLDownloadTask extends AsyncTask< Void, Integer, Void >
 					try
 					{
 						int contentLength = urlConnection.getContentLength();
+						
+						if ( contentLength < 0 )
+						{
+							throw new ProtocolException( "Content-Length header field missing" );
+						}
 						
 						byte[] buffer = new byte[ 4096 ];
 						
