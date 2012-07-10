@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+	<TextView
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:textColor="@color/normal_text"
+		android:text="@string/main_title"
+		android:textSize="@dimen/main_title_size"
+		android:gravity="center"
+		/>
+	<TextView
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:textColor="@color/normal_text"
+		android:text="@string/main_byline"
+		android:textSize="@dimen/main_byline_size"
+		android:gravity="center"
+		/>
+</merge>

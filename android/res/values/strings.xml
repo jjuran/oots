@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="app_name">Order of the Stick (beta)</string>
+	
+	<string name="main_title">The Order of the Stick</string>
+	<string name="main_byline">by Rich Burlew</string>
 </resources>
