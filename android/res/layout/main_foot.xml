@@ -12,6 +12,7 @@
 		android:layout_height="wrap_content"
 		android:layout_weight="1"
 		android:text="Comics by arc"
+		android:textColor="@android:color/black"
 		android:onClick="onClickArcs"
 		/>
 </LinearLayout>
