@@ -5,7 +5,7 @@ Order of the Stick is an Android app for viewing The Order of the Stick, a [webc
 
 [comics]:  <http://www.giantitp.com/Comics.html>
 
-The file [icon.gif][icon] is a copy of [ootssquare.gif][ootssquare] on Giant in the Playground's [Link Banners][banners] page.
+The file [icon.gif][icon] is a copy of [ootssquare.gif][ootssquare] on Giant in the Playground's [Link Banners][banners] page, and is not covered by the following copyright notice.
 
 [icon]:        <android/res/drawable/icon.gif>
 [ootssquare]:  <http://www.giantitp.com/Images/ootssquare.gif>
