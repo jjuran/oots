@@ -8,11 +8,11 @@ import android.widget.ArrayAdapter;
 public final class Arcs extends ListActivity
 {
 	
-	static int[] starts;
+	static final int[] starts;
 	
-	static String[] names;
+	static final String[] names;
 	
-	static void staticInit()
+	static
 	{
 		final int ARC_START = 0;
 		final int ARC_TITLE = 1;
