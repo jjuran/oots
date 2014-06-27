@@ -68,11 +68,33 @@ public final class Data
 		return end;
 	}
 	
+	static int currentComicNumber()
+	{
+		return currentOffset + 1;
+	}
+	
+	static String currentComicNumeral()
+	{
+		return Integer.toString( currentComicNumber() );
+	}
+	
+	static String currentComicTitle()
+	{
+		return titles[ currentOffset ];
+	}
+	
 	static void goToArcOffset( int offset )
 	{
 		currentArcOffset = offset;
 		
 		currentOffset = Arcs.starts[ offset ];
+	}
+	
+	static void goToComicOffsetWithinCurrentArc( int offset )
+	{
+		final int begin = countOfComicsBeforeCurrentArc();
+		
+		currentOffset = begin + offset;
 	}
 	
 }

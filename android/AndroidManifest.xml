@@ -54,5 +54,14 @@
 			</intent-filter>
 		</activity>
 		
+		<activity
+			android:name="Comic"
+			>
+			<intent-filter>
+				<action android:name="com.metamage.oots.action.COMIC" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		
 	</application>
 </manifest> 
