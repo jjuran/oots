@@ -26,7 +26,8 @@ public final class Arcs extends ListActivity
 			"0121	Paladin",
 			"0301	War",
 			"0485	Separation",
-			"0673	Western Continent"
+			"0673	Western Continent",
+			"0947	North Pole"
 		};
 		
 		final int n_arcs = arc_lines.length;
