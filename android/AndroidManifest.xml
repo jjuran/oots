@@ -36,5 +36,14 @@
 			</intent-filter>
 		</activity>
 		
+		<activity
+			android:name="ArcComics"
+			>
+			<intent-filter>
+				<action android:name="com.metamage.oots.action.ARCCOMICS" />
+				<category android:name="android.intent.category.DEFAULT" />
+			</intent-filter>
+		</activity>
+		
 	</application>
 </manifest> 
