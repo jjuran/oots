@@ -37,8 +37,8 @@ public final class App extends Application
 		
 		try
 		{
-			// Load titles/hashes
-			// ------------------
+			// Load titles/filenames
+			// ---------------------
 			
 			final int n_comics = Data.countOfComicsInCompletedArcs();
 			
