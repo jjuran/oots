@@ -10,6 +10,7 @@ import android.widget.TextView;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URL;
 
 
 public final class Comic extends Activity implements Prep.Target
@@ -50,12 +51,28 @@ public final class Comic extends Activity implements Prep.Target
 		return itsPrepTasks;
 	}
 	
+	private static String getImageUrlForComic( int number )
+	{
+		final int i = number - 1;
+		
+		if ( i >= Data.filenames.length )
+		{
+			return null;
+		}
+		
+		final String filename = Data.filenames[ i ];
+		
+		return Files.IMAGES_DIR_URL + filename;
+	}
+	
 	private static String getLocalFilenameForComic( int number ) throws IOException
 	{
 		// Pad to 4 chars with zeroes
 		final String numeral = Integer.toString( 10000 + number ).substring( 1 );
 		
-		final String filename = "oots" + numeral + ".gif";
+		final String extension = number <= 934 ? ".gif" : ".png";
+		
+		final String filename = "oots" + numeral + extension;
 		
 		return filename;
 	}
@@ -96,6 +113,11 @@ public final class Comic extends Activity implements Prep.Target
 				
 				return true;
 			}
+			
+			new FileURLDownloadTask( number,
+			                         new URL( getImageUrlForComic( number ) ),
+			                         cacheFile,
+			                         Prep.taskCompletion ).execute();
 			
 			return false;
 		}

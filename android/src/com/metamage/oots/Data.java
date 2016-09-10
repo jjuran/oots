@@ -5,6 +5,7 @@ public final class Data
 {
 	
 	static String[] titles;
+	static String[] filenames;
 	
 	static private int currentArcOffset = 0;
 	

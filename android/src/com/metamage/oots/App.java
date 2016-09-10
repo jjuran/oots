@@ -42,7 +42,8 @@ public final class App extends Application
 			
 			final int n_comics = Data.countOfComicsInCompletedArcs();
 			
-			Data.titles = LoadNLinesFromRawFile( n_comics, R.raw.titles );
+			Data.titles    = LoadNLinesFromRawFile( n_comics, R.raw.titles    );
+			Data.filenames = LoadNLinesFromRawFile( n_comics, R.raw.filenames );
 		}
 		catch ( IOException e )
 		{
