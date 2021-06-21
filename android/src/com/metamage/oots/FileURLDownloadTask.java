@@ -2,7 +2,6 @@ package com.metamage.oots;
 
 import android.os.AsyncTask;
 
-import java.io.EOFException;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -74,13 +73,6 @@ public final class FileURLDownloadTask extends AsyncTask< Void, Integer, Void >
 					
 					try
 					{
-						int contentLength = urlConnection.getContentLength();
-						
-						if ( contentLength < 0 )
-						{
-							throw new ProtocolException( "Content-Length header field missing" );
-						}
-						
 						byte[] buffer = new byte[ 4096 ];
 						
 						int totalBytesRead = 0;
@@ -92,22 +84,6 @@ public final class FileURLDownloadTask extends AsyncTask< Void, Integer, Void >
 							output.write( buffer, 0, bytes_read );
 							
 							totalBytesRead += bytes_read;
-						}
-						
-						if ( totalBytesRead != contentLength )
-						{
-							final String contentRatio = Integer.toString( totalBytesRead )
-							                          + " / "
-							                          + Integer.toString( contentLength );
-							
-							if ( totalBytesRead < contentLength )
-							{
-								throw new EOFException( "Content length underrun: " + contentRatio );
-							}
-							else  // totalBytesRead > contentLength
-							{
-								throw new ProtocolException( "Content length overrun: " + contentRatio );
-							}
 						}
 						
 						tempFile.renameTo( itsDestination );
